@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import reload from "../assets/reload.png";
 
 const Timer = () => {
     const [minute, setMinute] = useState(1);
@@ -28,15 +29,13 @@ const Timer = () => {
     const printTime = () => {
         return (
             <>
-                <p>
-                    {minute.toLocaleString("en-US", {
-                        minimumIntegerDigits: 2,
-                    })}
-                    :
-                    {second.toLocaleString("en-US", {
-                        minimumIntegerDigits: 2,
-                    })}
-                </p>
+                {minute.toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                })}
+                :
+                {second.toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                })}
             </>
         );
     };
@@ -44,6 +43,9 @@ const Timer = () => {
     return (
         <div className="timer">
             <p className="timer-isi">{printTime()}</p>
+            <button className="reload-button" onClick={resetTimer}>
+                <img src={reload} alt="reload" className="reload-icon" />
+            </button>
         </div>
     );
 };

@@ -1,16 +1,16 @@
 import Input from "../components/Input";
-import reload from "../assets/reload.png";
 import Timer from "../components/Timer";
+import TextField from "../components/TextField";
 
 const Home = () => {
     return (
-        <div className="baris">
-            <Input />
-            <Timer />
-            <button className="reload-button">
-                <img src={reload} alt="reload" className="reload-icon"/>
-            </button>
-        </div>
+        <>
+            <TextField />
+            <div className="baris">
+                <Input />
+                <Timer />
+            </div>
+        </>
     );
 };
 

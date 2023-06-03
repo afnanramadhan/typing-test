@@ -1,14 +1,17 @@
 .App {
   text-align: center;
   margin: 0;
-  background-color: rgb(83, 191, 234);
+  background-color: rgb(130, 200, 244);
+  height: 720px;
 }
 
 .baris{
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
+  background-color: #A7C8E7;
+  width: 1000px;
 }
 
 .input-field{
@@ -17,43 +20,66 @@
   font-size: 24px;
   padding: 5px;
   margin-top: 30px;
-  margin-right: 20px;
+  margin-right: 10px;
   border: 1px;
   border-style: solid;
   border-radius: 5px;
 }
 
 .reload-icon{
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   cursor: pointer;
   padding: 3px; 
+  padding: 5px 5px 10px 5px;
 }
 
 .reload-button{
   margin-top: 30px;
-  height: auto;
+  height: 40px;
   background-color: #428bca;
   border: 1px;
   border-style: solid;
   border-radius: 5px;
+  margin-left: 10px;
+}
+
+.reload-button:hover{
+  background-color: #3071a9;
 }
 
 
 .timer{
-  width: 60px;
-  height: auto;
-  margin-top: 30px;
-  margin-right: 20px;
-  border: 1px;
-  border-color: black;
-  border-style: solid;
-  border-radius: 5px;
-  background-color: #3c4d5c;
-  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .timer-isi{
-  padding: 3px;
-  font-size: 20px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #3c4d5c;
+  height: 35px;
+  text-align: center;
+  padding: 5px 10px 5px 10px;
+  font-size: 1.6em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: white;
+  background: #3c4d5c;
+}
+
+
+.rectangle {
+  margin-top: 100px;
+  display: inline-block;
+  width: 1000px;
+  height: 150px;
+  background: white;
+  border: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
 }
