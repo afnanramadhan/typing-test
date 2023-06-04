@@ -83,3 +83,12 @@
   border-radius: 10px;
   border-color: black;
 }
+
+.text{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+}
