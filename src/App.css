@@ -82,7 +82,10 @@
   border-style: solid;
   border-radius: 10px;
   border-color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 .text{
   padding-top: 10px;
@@ -91,4 +94,26 @@
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: justify;
+  /* minus per 40 */
+  top: -1px;
+  position: relative;
+}
+
+.highlight{
+  background-color: #a9aeae;
+  color: white;
+  /* padding: 5px; */
+  /* border-radius: 5px; */
+}
+
+.kata-benar{
+  color: green;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.kata-salah{
+  color: red;
+  padding: 5px;
+  border-radius: 5px;
 }
