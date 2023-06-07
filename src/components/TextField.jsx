@@ -2,10 +2,9 @@ import { Text } from "./VarText";
 import React, { useEffect } from "react";
 import { Context } from "../pages/Home";
 
-
-
 const TextField = () => {
-    const { displayText, setDisplayText, dynamicClass} = React.useContext(Context);
+    const { displayText, setDisplayText, dynamicClass, dynamicClass2 } =
+        React.useContext(Context);
 
     useEffect(() => {
         setDisplayText([]);
@@ -29,7 +28,9 @@ const TextField = () => {
                     <span
                         key={index}
                         wordNr={index}
-                        className={dynamicClass[index]}
+                        className={
+                            dynamicClass[index] + " " + dynamicClass2[index]
+                        }
                     >
                         {word}{" "}
                     </span>

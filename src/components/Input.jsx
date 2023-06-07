@@ -11,12 +11,21 @@ const Input = () => {
         displayText,
         dynamicClass,
         setDynamicClass,
+        dynamicClass2,
+        setDynamicClass2,
     } = React.useContext(Context);
 
     const updateElement = (index, newValue) => {
-        const newArray = [...dynamicClass]; // Create a copy of the original array
-        newArray[index] = newValue; // Update the desired element
-        setDynamicClass(newArray); // Update the state with the modified array
+        const newArray = [...dynamicClass];
+        console.log("newArray :", newArray);
+        newArray[index] = newValue;
+        setDynamicClass(newArray);
+    };
+    const updateElement2 = (index, newValue) => {
+        const newArray = [...dynamicClass2];
+        console.log("newArray2 :", newArray);
+        newArray[index] = newValue;
+        setDynamicClass2(newArray);
     };
 
     useEffect(() => {
@@ -25,25 +34,28 @@ const Input = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userInput]);
 
-
     const test2 = () => {
-        if(idx>0){
-            if(cekKata(inputKataUser[idx-1])){
-                updateElement(idx-1, "kata-benar");
-            }else{
-                updateElement(idx-1, "kata-salah");
+        if (idx > 0) {
+            if (cekKata(inputKataUser[idx - 1])) {
+                updateElement2(idx - 1, "kata-benar");
+            } else {
+                updateElement2(idx - 1, "kata-salah");
             }
         }
-    }
+    };
 
     const test = () => {
         if (idx > 0) {
-            if (!bruteForce(userInput)){
+            console.log("idx :", idx);
+            dynamicClass[idx - 1] = "";
+            if (!bruteForce(userInput)) {
                 updateElement(idx, "highlight-salah");
-            }else{
+                // console.log("salah");
+            } else {
                 updateElement(idx, "highlight");
+                // console.log("benar");
             }
-        }else{
+        } else {
             updateElement(idx, "highlight");
         }
     };
@@ -53,13 +65,11 @@ const Input = () => {
     };
 
     const cekKata = (input) => {
-        if(input === displayText[idx-1]){
-            console.log("benar");
+        if (input === displayText[idx - 1]) {
             return true;
-        } 
-        console.log("salah");
+        }
         return false;
-    }
+    };
 
     const bruteForce = (input) => {
         input = removeSpace(input);
@@ -79,14 +89,15 @@ const Input = () => {
     };
 
     const handleChange = (event) => {
-        // console.log(event.target.value);
         setUserInput(event.target.value);
-        // console.log(bruteForce(event.target.value));
     };
 
     const spasi = (e) => {
         if (e.keyCode === 32) {
-            setInputKataUser((inputKataUser) => [...inputKataUser, removeSpace(userInput)]);
+            setInputKataUser((inputKataUser) => [
+                ...inputKataUser,
+                removeSpace(userInput),
+            ]);
             setUserInput("");
             setIdx(idx + 1);
         }
