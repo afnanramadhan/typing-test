@@ -11,44 +11,26 @@ const Input = () => {
         displayText,
         dynamicClass,
         setDynamicClass,
-        dynamicClass2,
-        setDynamicClass2,
     } = React.useContext(Context);
 
     const updateElement = (index, newValue) => {
         const newArray = [...dynamicClass];
-        console.log("newArray :", newArray);
         newArray[index] = newValue;
         setDynamicClass(newArray);
-    };
-    const updateElement2 = (index, newValue) => {
-        const newArray = [...dynamicClass2];
-        console.log("newArray2 :", newArray);
-        newArray[index] = newValue;
-        setDynamicClass2(newArray);
     };
 
     useEffect(() => {
         test();
-        test2();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userInput]);
 
-    const test2 = () => {
+    const test = () => {
         if (idx > 0) {
             if (cekKata(inputKataUser[idx - 1])) {
-                // updateElement2(idx - 1, "kata-benar");
                 dynamicClass[idx - 1] = "kata-benar";
             } else {
                 dynamicClass[idx - 1] = "kata-salah";
-                // updateElement2(idx - 1, "kata-salah");
             }
-        }
-    };
-
-    const test = () => {
-        if (idx > 0) {
-            // dynamicClass[idx - 1] = "";
             if (!bruteForce(userInput)) {
                 updateElement(idx, "highlight-salah");
             } else {
@@ -56,6 +38,13 @@ const Input = () => {
             }
         } else {
             updateElement(idx, "highlight");
+            if (userInput.length > 0) {
+                if (!bruteForce(userInput)) {
+                    updateElement(idx, "highlight-salah");
+                } else {
+                    updateElement(idx, "highlight");
+                }
+            }
         }
     };
 
@@ -63,6 +52,7 @@ const Input = () => {
         return input.replace(/\s/g, "");
     };
 
+    // buat cek kata
     const cekKata = (input) => {
         if (input === displayText[idx - 1]) {
             return true;
@@ -97,8 +87,8 @@ const Input = () => {
                 ...inputKataUser,
                 removeSpace(userInput),
             ]);
-            setUserInput("");
             setIdx(idx + 1);
+            setUserInput("");
         }
     };
 
