@@ -1,118 +1,134 @@
 .App {
-  text-align: center;
-  margin: 0;
-  background-color: rgb(130, 200, 244);
-  height: 720px;
+    text-align: center;
+    margin: 0;
+    background-color: rgb(130, 200, 244);
+    height: 720px;
 }
 
-.baris{
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-  background-color: #A7C8E7;
-  width: 1000px;
+.baris {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    background-color: #a7c8e7;
+    width: 1000px;
 }
 
-.input-field{
-  width: 500px;
-  height: auto;
-  font-size: 24px;
-  padding: 5px;
-  margin-top: 30px;
-  margin-right: 10px;
-  border: 1px;
-  border-style: solid;
-  border-radius: 5px;
+.input-field {
+    width: 500px;
+    height: auto;
+    font-size: 24px;
+    padding: 5px;
+    margin-top: 30px;
+    margin-right: 10px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
 }
 
-.reload-icon{
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  padding: 3px; 
-  padding: 5px 5px 10px 5px;
+.reload-icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    padding: 3px;
+    padding: 5px 5px 10px 5px;
 }
 
-.reload-button{
-  margin-top: 30px;
-  height: 40px;
-  background-color: #428bca;
-  border: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  margin-left: 10px;
+.reload-button {
+    margin-top: 30px;
+    height: 40px;
+    background-color: #428bca;
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
-.reload-button:hover{
-  background-color: #3071a9;
+.reload-button:hover {
+    background-color: #3071a9;
 }
 
-
-.timer{
-  display: inline-flex;
-  justify-content: center;
-  align-items: flex-start;
+.timer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.timer-isi{
-  border: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #3c4d5c;
-  height: 35px;
-  text-align: center;
-  padding: 5px 10px 5px 10px;
-  font-size: 1.6em;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: white;
-  background: #3c4d5c;
+.timer-isi {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #3c4d5c;
+    height: 35px;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    font-size: 1.6em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
+    background: #3c4d5c;
 }
-
 
 .rectangle {
-  margin-top: 100px;
-  display: inline-block;
-  width: 1000px;
-  height: 150px;
-  background: white;
-  border: 2px;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: black;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    margin-top: 100px;
+    display: inline-block;
+    width: 1000px;
+    height: 150px;
+    background: white;
+    border: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-
-.text{
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: justify;
-  /* minus per 40 */
-  top: -1px;
-  position: relative;
+.text {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    /* minus per 40 */
+    top: -1px;
+    position: relative;
 }
 
-.highlight{
-  background-color: #bdc6c6;
-  color: black;
+.highlight {
+    background-color: #bdc6c6;
+    color: black;
 }
 
-.highlight-salah{
-  background-color: #dd1200;
-  color: black;
+.highlight-salah {
+    background-color: red;
+    color: black;
 }
 
-.kata-benar{
-  color: green;
+.kata-benar {
+    color: green;
 }
 
-.kata-salah{
-  color: red;
+.kata-salah {
+    color: red;
+}
+
+.disabled-content {
+    display: none;
+}
+
+.enabled-content {
+    display: inline-block;
+}
+
+.result{
+    flex-direction: row;
+    background-color: #ffffff;
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
 }

@@ -1,36 +1,39 @@
-import { Text } from "./VarText";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Context } from "../pages/Home";
 
 const TextField = () => {
-    const { displayText, setDisplayText, dynamicClass} =
-        React.useContext(Context);
+    const {
+        displayText,
+        setDisplayText,
+        dynamicClass,
+        getRandomWord,
+        disabled,
+    } = React.useContext(Context);
+    const classVisibility = useRef("a");
 
     useEffect(() => {
         setDisplayText([]);
         getRandomWord();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const getRandomWord = () => {
-        setDisplayText([]);
-        for (let i = 0; i < 55; i++) {
-            const randomIndex = Math.floor(Math.random() * Text.length);
-            const randomWord = Text[randomIndex];
-            setDisplayText((displayText) => [...displayText, randomWord]);
+    
+    useEffect(() => {
+        if (disabled.current) {
+            classVisibility.current = "disabled-content";
+        } else {
+            classVisibility.current = "enabled-content";
         }
-    };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    });
 
     return (
-        <div className="rectangle">
+        <div className={`rectangle ${classVisibility.current}`}>
             <div className="text">
                 {displayText.map((word, index) => (
                     <span
                         key={index}
-                        wordNr={index}
-                        className={
-                            dynamicClass[index]
-                        }
+                        wordnr={index}
+                        className={dynamicClass[index]}
                     >
                         {word}{" "}
                     </span>

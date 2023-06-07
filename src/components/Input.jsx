@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Context } from "../pages/Home";
 
 const Input = () => {
-    const [inputKataUser, setInputKataUser] = useState([]);
     const {
         idx,
         setIdx,
@@ -11,6 +10,9 @@ const Input = () => {
         displayText,
         dynamicClass,
         setDynamicClass,
+        setInputKataUser,
+        inputKataUser,
+        disabled,
     } = React.useContext(Context);
 
     const updateElement = (index, newValue) => {
@@ -44,6 +46,9 @@ const Input = () => {
                 } else {
                     updateElement(idx, "highlight");
                 }
+            }
+            if(disabled.current){
+                // updateElement(idx, "highlight-salah");
             }
         }
     };
