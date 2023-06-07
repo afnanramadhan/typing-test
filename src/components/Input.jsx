@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Context } from "../pages/Home";
 
 const Input = () => {
-
+    const [inputKataUser, setInputKataUser] = useState([]);
     const {
         idx,
         setIdx,
@@ -17,12 +17,24 @@ const Input = () => {
         const newArray = [...dynamicClass]; // Create a copy of the original array
         newArray[index] = newValue; // Update the desired element
         setDynamicClass(newArray); // Update the state with the modified array
-        console.log(idx);
     };
 
     useEffect(() => {
         test();
+        test2();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userInput]);
+
+
+    const test2 = () => {
+        if(idx>0){
+            if(cekKata(inputKataUser[idx-1])){
+                updateElement(idx-1, "kata-benar");
+            }else{
+                updateElement(idx-1, "kata-salah");
+            }
+        }
+    }
 
     const test = () => {
         if (idx > 0) {
@@ -34,14 +46,20 @@ const Input = () => {
         }else{
             updateElement(idx, "highlight");
         }
-
     };
 
     const removeSpace = (input) => {
         return input.replace(/\s/g, "");
     };
 
-
+    const cekKata = (input) => {
+        if(input === displayText[idx-1]){
+            console.log("benar");
+            return true;
+        } 
+        console.log("salah");
+        return false;
+    }
 
     const bruteForce = (input) => {
         input = removeSpace(input);
@@ -61,13 +79,14 @@ const Input = () => {
     };
 
     const handleChange = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setUserInput(event.target.value);
-        console.log(bruteForce(event.target.value));
+        // console.log(bruteForce(event.target.value));
     };
 
     const spasi = (e) => {
         if (e.keyCode === 32) {
+            setInputKataUser((inputKataUser) => [...inputKataUser, removeSpace(userInput)]);
             setUserInput("");
             setIdx(idx + 1);
         }

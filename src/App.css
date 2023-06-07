@@ -102,8 +102,6 @@
 .highlight{
   background-color: #bdc6c6;
   color: black;
-  /* padding: 5px; */
-  /* border-radius: 5px; */
 }
 
 .highlight-salah{
@@ -113,12 +111,8 @@
 
 .kata-benar{
   color: green;
-  padding: 5px;
-  border-radius: 5px;
 }
 
 .kata-salah{
   color: red;
-  padding: 5px;
-  border-radius: 5px;
 }
