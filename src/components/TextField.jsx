@@ -1,14 +1,11 @@
 import { Text } from "./VarText";
-import React, { useState, useEffect } from "react";
-import { cpyIdx } from "./Input";
+import React, { useEffect } from "react";
 import { Context } from "../pages/Home";
 
-var copyDisplayText = [];
+
 
 const TextField = () => {
-    const {displayText, setDisplayText,dynamicClass, setDynamicClass} = React.useContext(Context);
-    copyDisplayText = [...displayText];
-
+    const { displayText, setDisplayText, dynamicClass, setDynamicClass, idx } = React.useContext(Context);
 
     useEffect(() => {
         setDisplayText([]);
@@ -28,12 +25,8 @@ const TextField = () => {
         const newArray = [...dynamicClass]; // Create a copy of the original array
         newArray[index] = newValue; // Update the desired element
         setDynamicClass(newArray); // Update the state with the modified array
-        console.log(cpyIdx);
+        console.log(idx);
     };
-
-    const ppp = () =>{
-        console.log("ppp");
-    }
 
     // console.log(typeof(document.querySelector("[wordNr]")));
     // const aaa = document.querySelector("[wordNr]");
@@ -55,9 +48,11 @@ const TextField = () => {
 
     return (
         <div className="rectangle">
-            <div>
-                <button onClick={() => updateElement(cpyIdx)}>PP</button>
-            </div>
+            {/* <div>
+                <button onClick={() => updateElement(idx, "kata-salah")}>
+                    PP
+                </button>
+            </div> */}
             <div className="text">
                 {displayText.map((word, index) => (
                     <span
@@ -75,4 +70,3 @@ const TextField = () => {
 
 // console.log(ppp);
 export default TextField;
-export { copyDisplayText };

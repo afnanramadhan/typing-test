@@ -100,10 +100,15 @@
 }
 
 .highlight{
-  background-color: #a9aeae;
+  background-color: #bdc6c6;
   color: black;
   /* padding: 5px; */
   /* border-radius: 5px; */
+}
+
+.highlight-salah{
+  background-color: #dd1200;
+  color: black;
 }
 
 .kata-benar{
