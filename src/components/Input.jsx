@@ -37,23 +37,22 @@ const Input = () => {
     const test2 = () => {
         if (idx > 0) {
             if (cekKata(inputKataUser[idx - 1])) {
-                updateElement2(idx - 1, "kata-benar");
+                // updateElement2(idx - 1, "kata-benar");
+                dynamicClass[idx - 1] = "kata-benar";
             } else {
-                updateElement2(idx - 1, "kata-salah");
+                dynamicClass[idx - 1] = "kata-salah";
+                // updateElement2(idx - 1, "kata-salah");
             }
         }
     };
 
     const test = () => {
         if (idx > 0) {
-            console.log("idx :", idx);
-            dynamicClass[idx - 1] = "";
+            // dynamicClass[idx - 1] = "";
             if (!bruteForce(userInput)) {
                 updateElement(idx, "highlight-salah");
-                // console.log("salah");
             } else {
                 updateElement(idx, "highlight");
-                // console.log("benar");
             }
         } else {
             updateElement(idx, "highlight");
