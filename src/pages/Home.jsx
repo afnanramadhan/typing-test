@@ -13,7 +13,12 @@ const Home = () => {
     const [displayText, setDisplayText] = useState([]);
     const [dynamicClass, setDynamicClass] = useState([]);
     const [inputKataUser, setInputKataUser] = useState([]);
-    const disabled = useRef(false);
+    const [isVisisble, setIsVisible] = useState(true);
+    const wpm = useRef(0);
+    const karakterBenar = useRef(0);
+    const karakterSalah = useRef(0);
+    const kataBenar = useRef(0);
+    const kataSalah = useRef(0);
 
     const getRandomWord = () => {
         setDisplayText([]);
@@ -38,10 +43,16 @@ const Home = () => {
                 getRandomWord,
                 inputKataUser,
                 setInputKataUser,
-                disabled,
+                isVisisble,
+                setIsVisible,
+                wpm,
+                karakterBenar,
+                karakterSalah,
+                kataBenar,
+                kataSalah,
             }}
         >
-            <TextField/>
+            <TextField />
             <div className="baris">
                 <Input />
                 <Timer />

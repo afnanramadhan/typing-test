@@ -12,7 +12,10 @@ const Input = () => {
         setDynamicClass,
         setInputKataUser,
         inputKataUser,
-        disabled,
+        karakterBenar,
+        karakterSalah,
+        kataBenar,
+        kataSalah,
     } = React.useContext(Context);
 
     const updateElement = (index, newValue) => {
@@ -27,7 +30,7 @@ const Input = () => {
     }, [userInput]);
 
     const test = () => {
-        if (idx > 0) {
+        if (idx > 0 && userInput!==" ") {
             if (cekKata(inputKataUser[idx - 1])) {
                 dynamicClass[idx - 1] = "kata-benar";
             } else {
@@ -35,8 +38,10 @@ const Input = () => {
             }
             if (!bruteForce(userInput)) {
                 updateElement(idx, "highlight-salah");
+                karakterSalah.current += 1;
             } else {
                 updateElement(idx, "highlight");
+                karakterBenar.current += 1;
             }
         } else {
             updateElement(idx, "highlight");
@@ -46,9 +51,6 @@ const Input = () => {
                 } else {
                     updateElement(idx, "highlight");
                 }
-            }
-            if(disabled.current){
-                // updateElement(idx, "highlight-salah");
             }
         }
     };
@@ -94,6 +96,13 @@ const Input = () => {
             ]);
             setIdx(idx + 1);
             setUserInput("");
+            if(cekKata(inputKataUser[idx-1])){
+                kataBenar.current += 1;
+                karakterBenar.current -=1
+            }else{
+                kataSalah.current += 1;
+                karakterSalah.current -=1
+            }
         }
     };
 

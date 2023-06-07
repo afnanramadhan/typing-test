@@ -3,10 +3,14 @@ import reload from "../assets/reload.png";
 import { Context } from "../pages/Home";
 
 const Timer = () => {
-    const { getRandomWord, setDynamicClass, setIdx, setInputKataUser, disabled } =
+    const { getRandomWord, setDynamicClass, setIdx, setInputKataUser, setIsVisible,wpm,
+        karakterBenar,
+        karakterSalah,
+        kataBenar,
+        kataSalah,} =
         React.useContext(Context);
-    const [minute, setMinute] = useState(1);
-    const [second, setSecond] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [second, setSecond] = useState(30);
     useEffect(() => {
         const timer = setTimeout(() => {
             if (second > 0) {
@@ -21,7 +25,8 @@ const Timer = () => {
                 }
             }
             if(minute === 0 && second === 1){
-                disabled.current = true;
+                // disabledTextField.current = true;
+                setIsVisible(false)
                 console.log("disabled");
             }
         }, 1000);
@@ -30,14 +35,19 @@ const Timer = () => {
     }, [minute, second]);
 
     const resetTimer = () => {
-        setMinute(1);
-        setSecond(0);
+        setMinute(0);
+        setSecond(30);
         setDynamicClass([]);
         setIdx(0);
         getRandomWord();
         setInputKataUser([]);
-        disabled.current = false;
+        setIsVisible(true)
         console.log("enabled");
+        wpm.current = 0;
+        karakterBenar.current = 0;
+        karakterSalah.current = 0;
+        kataBenar.current = 0;
+        kataSalah.current = 0;
     };
 
     const printTime = () => {

@@ -1,12 +1,21 @@
+import { Context } from "../pages/Home";
+import React from "react";
 
+const Result = () => {
+    const { wpm, karakterBenar, karakterSalah,kataBenar, kataSalah } = React.useContext(Context);
 
-const Result = (props) => {
+    // const getWPM = () => {
+    //     wpm.current = Math.floor((kataBenar.current / 5) * 60);
+    // }
+
     return(
         <div className="result">
             <p>Result</p>
-            <p>WPM: 100</p>
-            <p>Kata Benar : 10</p>
-            <p>Kata Salah : 10</p>
+            <p>WPM: {wpm.current}</p>
+            <p>Karakter Benar : {karakterBenar.current}</p>
+            <p>Karakter Salah : {karakterSalah.current}</p>
+            <p>Kata Benar : {kataBenar.current}</p>
+            <p>Kata Salah : {kataSalah.current}</p>
         </div>
     )
 }
