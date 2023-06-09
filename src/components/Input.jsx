@@ -88,7 +88,7 @@ const Input = () => {
 
     const handleChange = (event) => {
         setUserInput(event.target.value);
-        if(isVisisble){
+        if (isVisisble) {
             setStartTimer(true);
         }
     };

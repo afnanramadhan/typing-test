@@ -15,7 +15,8 @@ const Timer = () => {
         kataBenar,
         kataSalah,
         startTimer,
-        setStartTimer
+        setStartTimer,
+        setUserInput,
     } = React.useContext(Context);
     const [minute, setMinute] = useState(0);
     const [second, setSecond] = useState(30);
@@ -52,7 +53,7 @@ const Timer = () => {
         setInputKataUser([]);
         setIsVisible(true);
         setStartTimer(false);
-        console.log("enabled");
+        setUserInput("");
         wpm.current = 0;
         karakterBenar.current = 0;
         karakterSalah.current = 0;

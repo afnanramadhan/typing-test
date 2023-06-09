@@ -2,19 +2,15 @@ import React, { useEffect, useRef } from "react";
 import { Context } from "../pages/Home";
 
 const TextField = () => {
-    const {
-        displayText,
-        dynamicClass,
-        getRandomWord,
-        isVisisble
-    } = React.useContext(Context);
+    const { displayText, dynamicClass, getRandomWord, isVisisble } =
+        React.useContext(Context);
     const classVisibility = useRef("a");
 
     useEffect(() => {
         getRandomWord();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    
+
     useEffect(() => {
         if (!isVisisble) {
             classVisibility.current = "disabled-content";
