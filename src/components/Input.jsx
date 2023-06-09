@@ -16,6 +16,8 @@ const Input = () => {
         karakterSalah,
         kataBenar,
         kataSalah,
+        setStartTimer,
+        isVisisble,
     } = React.useContext(Context);
 
     const updateElement = (index, newValue) => {
@@ -30,7 +32,7 @@ const Input = () => {
     }, [userInput]);
 
     const test = () => {
-        if (idx > 0 && userInput!==" ") {
+        if (idx > 0 && userInput !== " ") {
             if (cekKata(inputKataUser[idx - 1])) {
                 dynamicClass[idx - 1] = "kata-benar";
             } else {
@@ -86,6 +88,9 @@ const Input = () => {
 
     const handleChange = (event) => {
         setUserInput(event.target.value);
+        if(isVisisble){
+            setStartTimer(true);
+        }
     };
 
     const spasi = (e) => {
@@ -96,12 +101,12 @@ const Input = () => {
             ]);
             setIdx(idx + 1);
             setUserInput("");
-            if(cekKata(inputKataUser[idx-1])){
+            if (cekKata(inputKataUser[idx - 1])) {
                 kataBenar.current += 1;
-                karakterBenar.current -=1
-            }else{
+                karakterBenar.current -= 1;
+            } else {
                 kataSalah.current += 1;
-                karakterSalah.current -=1
+                karakterSalah.current -= 1;
             }
         }
     };

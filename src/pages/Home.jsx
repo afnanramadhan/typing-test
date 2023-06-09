@@ -14,6 +14,7 @@ const Home = () => {
     const [dynamicClass, setDynamicClass] = useState([]);
     const [inputKataUser, setInputKataUser] = useState([]);
     const [isVisisble, setIsVisible] = useState(true);
+    const [startTimer, setStartTimer] = useState(false)
     const wpm = useRef(0);
     const karakterBenar = useRef(0);
     const karakterSalah = useRef(0);
@@ -50,6 +51,8 @@ const Home = () => {
                 karakterSalah,
                 kataBenar,
                 kataSalah,
+                startTimer,
+                setStartTimer
             }}
         >
             <TextField />

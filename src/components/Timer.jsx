@@ -3,36 +3,45 @@ import reload from "../assets/reload.png";
 import { Context } from "../pages/Home";
 
 const Timer = () => {
-    const { getRandomWord, setDynamicClass, setIdx, setInputKataUser, setIsVisible,wpm,
+    const {
+        getRandomWord,
+        setDynamicClass,
+        setIdx,
+        setInputKataUser,
+        setIsVisible,
+        wpm,
         karakterBenar,
         karakterSalah,
         kataBenar,
-        kataSalah,} =
-        React.useContext(Context);
+        kataSalah,
+        startTimer,
+        setStartTimer
+    } = React.useContext(Context);
     const [minute, setMinute] = useState(0);
     const [second, setSecond] = useState(30);
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (second > 0) {
-                setSecond(second - 1);
-            }
-            if (second === 0) {
-                if (minute === 0) {
-                    clearTimeout(timer);
-                } else {
-                    setMinute(minute - 1);
-                    setSecond(59);
+            if (startTimer) {
+                if (second > 0) {
+                    setSecond(second - 1);
                 }
-            }
-            if(minute === 0 && second === 1){
-                // disabledTextField.current = true;
-                setIsVisible(false)
-                console.log("disabled");
+                if (second === 0) {
+                    if (minute === 0) {
+                        clearTimeout(timer);
+                    } else {
+                        setMinute(minute - 1);
+                        setSecond(59);
+                    }
+                }
+                if (minute === 0 && second === 1) {
+                    setIsVisible(false);
+                    setStartTimer(false);
+                }
             }
         }, 1000);
         return () => clearTimeout(timer);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [minute, second]);
+    }, [minute, second, startTimer]);
 
     const resetTimer = () => {
         setMinute(0);
@@ -41,7 +50,8 @@ const Timer = () => {
         setIdx(0);
         getRandomWord();
         setInputKataUser([]);
-        setIsVisible(true)
+        setIsVisible(true);
+        setStartTimer(false);
         console.log("enabled");
         wpm.current = 0;
         karakterBenar.current = 0;
